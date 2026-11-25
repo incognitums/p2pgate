@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/p2pgate.svg)](https://www.npmjs.com/package/p2pgate)
 [![license](https://img.shields.io/npm/l/p2pgate.svg)](LICENSE)
 [![Node.js](https://img.shields.io/node/v/p2pgate.svg)](package.json)
-[![Socket](https://badge.socket.dev/npm/package/p2pgate?v=1.13.7)](https://socket.dev/npm/package/p2pgate)
+[![Socket](https://badge.socket.dev/npm/package/p2pgate?v=1.13.8)](https://socket.dev/npm/package/p2pgate)
 
 อุโมงค์ TCP แบบ P2P ขนาดเล็ก สำหรับเข้าถึง SSH และ service อื่น ๆ บนเครื่องที่อยู่หลัง
 CGNAT/ไฟร์วอลล์ โดยไม่ต้องเปิดพอร์ตออกสู่อินเทอร์เน็ต พร้อม **Mutual SCRAM**,
@@ -1384,7 +1384,7 @@ p2pgate/
 │   │   ├── v1.13.2.md
 │   │   ├── v1.13.3.md
 │   │   ├── v1.13.4.md
-│   │   └── v1.13.7.md
+│   │   └── v1.13.8.md
 │   └── specs/
 │       ├── phase2-v1.1.md
 │       ├── phase3-v1.2.md

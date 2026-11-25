@@ -34,6 +34,7 @@ Markdown for easier review and diffing.
 - [Release notes v1.13.5](releases/v1.13.5.md)
 - [Release notes v1.13.6](releases/v1.13.6.md)
 - [Release notes v1.13.7](releases/v1.13.7.md)
+- [Release notes v1.13.8](releases/v1.13.8.md)
 - [Release notes v1.13.4](releases/v1.13.4.md)
 - [Release notes v1.13.3](releases/v1.13.3.md)
 - [Release notes v1.13.2](releases/v1.13.2.md)

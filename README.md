@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/p2pgate.svg)](https://www.npmjs.com/package/p2pgate)
 [![license](https://img.shields.io/npm/l/p2pgate.svg)](LICENSE)
 [![Node.js](https://img.shields.io/node/v/p2pgate.svg)](package.json)
-[![Socket](https://badge.socket.dev/npm/package/p2pgate?v=1.13.7)](https://socket.dev/npm/package/p2pgate)
+[![Socket](https://badge.socket.dev/npm/package/p2pgate?v=1.13.8)](https://socket.dev/npm/package/p2pgate)
 
 A small peer-to-peer TCP tunnel for reaching SSH and other loopback services on
 a device behind CGNAT or a firewall without exposing an inbound port. It
@@ -1412,7 +1412,7 @@ p2pgate/
 │   │   ├── v1.13.2.md
 │   │   ├── v1.13.3.md
 │   │   ├── v1.13.4.md
-│   │   └── v1.13.7.md
+│   │   └── v1.13.8.md
 │   └── specs/
 │       ├── phase2-v1.1.md
 │       ├── phase3-v1.2.md

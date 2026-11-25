@@ -7,6 +7,27 @@
 
 - รอผลทดสอบ long-running และการสลับเครือข่าย
 
+## [1.13.8] - 2026-11-25
+
+### Fixed
+
+- `.sort()` ไม่มี comparator ใน `hosts list`, `config-tools` และ `status` — เปลี่ยนเป็น
+  `localeCompare` / numeric comparator (เดิมเรียงตาม code unit)
+- ลบ option `all` ที่ประกาศซ้ำใน `src/cli.js`
+- `src/device-registry.js` เลิกใช้ regex trailing newline (ตัดความเสี่ยง backtracking)
+- regex ใน `scripts/check-release.js` กระชับขึ้น (ไม่มี super-linear backtracking)
+- `src/mux.js` ใช้ `Math.trunc` แทน `| 0`
+- `scripts/soak/mux-termux.sh` ใช้ `[[ ... ]]` แทน `[ ... ]`
+- commit `spike/mux/Cargo.lock` เพื่อ reproducibility
+
+### Changed
+
+- เพิ่ม `// NOSONAR` พร้อมเหตุผลในจุดที่เป็น false positive (path จาก operator,
+  test credential, sample string) — SonarCloud: 35 issues → **0**
+- เพิ่ม release tooling: `scripts/check-release.js`, `scripts/release.js`,
+  `RELEASING.md`, npm scripts `release:check` / `release:preflight` / `release:after`
+- `prepublishOnly` รัน `npm test` + release check
+
 ## [1.13.7] - 2026-11-21
 
 ### Changed
