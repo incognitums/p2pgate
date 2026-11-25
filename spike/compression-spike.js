@@ -138,7 +138,7 @@ async function tunnel (payload) {
 
 async function main () {
   const codecName = (process.argv[2] || 'zstd').toLowerCase()
-  const level = Number(process.argv[3] || (codecName === 'zstd' ? 1 : codecName === 'brotli' ? 1 : 1))
+  const level = Number(process.argv[3] || 1)
   const codec = codecFrom(codecName, level)
 
   const cases = [

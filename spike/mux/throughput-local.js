@@ -78,6 +78,7 @@ async function run (useMux) {
 
   // wait until the sink has everything (or close)
   const deadline = Date.now() + 120_000
+  // NOSONAR: `received` is updated by the socket data handler.
   while (received < TOTAL && Date.now() < deadline) {
     await new Promise((r) => setTimeout(r, 50))
   }

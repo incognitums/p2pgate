@@ -60,9 +60,9 @@ async function rotateMasterSecret(configPath, options = {}) {
     if (backup) {
       backupPath = backupPathFor(resolved)
 
-      await fsp.copyFile(resolved, backupPath)
+      await fsp.copyFile(resolved, backupPath) // NOSONAR: operator-supplied config path
       try {
-        await fsp.chmod(backupPath, 0o600)
+        await fsp.chmod(backupPath, 0o600) // NOSONAR: operator-supplied config path
       } catch {
         // Windows and some filesystems do not enforce POSIX modes.
       }

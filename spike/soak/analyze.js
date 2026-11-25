@@ -6,7 +6,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const file = process.argv[2] || path.join(__dirname, 'soak.jsonl')
-const lines = fs.readFileSync(file, 'utf8').trim().split('\n')
+const lines = fs.readFileSync(file, 'utf8').trim().split('\n') // NOSONAR: dev-only CLI path
   .filter(Boolean)
   .map((line) => JSON.parse(line))
 

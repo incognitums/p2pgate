@@ -33,7 +33,7 @@ function redactConfig(config) {
 
 function summarizeConfig(config) {
   const targets = config.targets && typeof config.targets === 'object'
-    ? Object.keys(config.targets).sort()
+    ? Object.keys(config.targets).sort((a, b) => a.localeCompare(b))
     : []
   const socks = config.socks && typeof config.socks === 'object'
     ? {

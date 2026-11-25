@@ -518,7 +518,7 @@ async function main() {
     // ---------------------------------------------------------------------
     // 4c. Encrypted client key round-trip and plaintext compatibility
     // ---------------------------------------------------------------------
-    const keyPassphrase = 'CorrectHorseBatteryStaple-42'
+    const keyPassphrase = 'CorrectHorseBatteryStaple-42' // NOSONAR: test fixture, not a real credential
     const encryptedKeyPath = path.join(tempDir, 'encrypted-key.json')
     const encryptedKey = await generateClientKey(encryptedKeyPath, {
       passphrase: keyPassphrase
@@ -606,7 +606,7 @@ async function main() {
       // Windows and some filesystems do not enforce POSIX modes.
     }
 
-    const unattendedPassword = 'CorrectHorseBatteryStaple-42'
+    const unattendedPassword = 'CorrectHorseBatteryStaple-42' // NOSONAR: test fixture, not a real credential
     const unattendedVerifier = serializeScramVerifier(
       await deriveScramVerifier(unattendedPassword)
     )

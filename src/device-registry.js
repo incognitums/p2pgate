@@ -479,7 +479,9 @@ class DeviceRegistry {
       // Windows and some filesystems do not enforce POSIX modes.
     }
 
-    const content = lines.length > 0 ? `${lines.join('\n').replace(/\n+$/, '')}\n` : ''
+    let joined = lines.join('\n')
+    while (joined.endsWith('\n')) joined = joined.slice(0, -1)
+    const content = joined.length > 0 ? `${joined}\n` : ''
     const tempPath = `${this.filePath}.${process.pid}.${Date.now()}.tmp`
 
     try {

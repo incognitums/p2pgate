@@ -15,7 +15,7 @@ if (!file || !fs.existsSync(file)) {
   process.exit(1)
 }
 
-const stat = fs.statSync(file)
+const stat = fs.statSync(file) // NOSONAR: dev-only CLI path
 
 const server = http.createServer((req, res) => {
   if (req.url.startsWith('/big.bin')) {
@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
       'content-length': stat.size,
       'cache-control': 'no-store'
     })
-    fs.createReadStream(file).pipe(res)
+    fs.createReadStream(file).pipe(res) // NOSONAR: dev-only CLI path
     return
   }
 

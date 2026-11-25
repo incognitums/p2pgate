@@ -42,7 +42,7 @@ function encodeFrame(type, flags, channelId, payload = Buffer.alloc(0)) {
 
   const frame = Buffer.allocUnsafe(HEADER_BYTES + body.length)
   frame.writeUInt8(type, 0)
-  frame.writeUInt8(flags | 0, 1)
+  frame.writeUInt8(Math.trunc(flags) || 0, 1)
   frame.writeUInt32BE(channelId >>> 0, 2)
   frame.writeUInt32BE(body.length, 6)
   body.copy(frame, HEADER_BYTES)

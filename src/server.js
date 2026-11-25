@@ -2211,7 +2211,7 @@ async function startServer(config, options = {}) {
         verificationMode,
         authMode,
         targetPort: effectiveTargetPort,
-        targets: [...targetDefs.keys()].sort(),
+        targets: [...targetDefs.keys()].sort((a, b) => a.localeCompare(b)),
         defaultTarget: defaultTargetName,
         currentSlot,
         listeningSlots: [...listeners.keys()].sort((a, b) => a - b),

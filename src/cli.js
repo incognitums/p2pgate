@@ -2543,7 +2543,6 @@ async function main(argv) {
         expires: { type: 'string' },
         permanent: { type: 'boolean' },
         comment: { type: 'string' },
-        all: { type: 'boolean' },
         list: { type: 'boolean' },
         force: { type: 'boolean' },
         help: { type: 'boolean', short: 'h' },

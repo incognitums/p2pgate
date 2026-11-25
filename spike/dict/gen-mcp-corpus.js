@@ -37,7 +37,7 @@ const tools = [
   ['translate', 'Translate text', { text: 'string', from: 'string', to: 'string' }]
 ]
 
-const dirs = ['/workspace/src', '/workspace/docs', '/workspace/tests', '/home/user/app', '/srv/api/src', '/tmp/build']
+const dirs = ['/workspace/src', '/workspace/docs', '/workspace/tests', '/home/user/app', '/srv/api/src', '/tmp/build'] // NOSONAR: sample strings, not filesystem use
 const files = ['index.ts', 'server.py', 'mux.js', 'README.md', 'package.json', 'config.yaml', 'client.go']
 const services = ['api-gateway', 'auth-service', 'billing', 'search', 'notifier']
 const envs = ['staging', 'production', 'preview']

@@ -671,11 +671,11 @@ async function readConfigRaw(configPath) {
 
   let raw
   try {
-    raw = await fsp.readFile(absolutePath, 'utf8')
+    raw = await fsp.readFile(absolutePath, 'utf8') // NOSONAR: operator-supplied config path
     // The file contains masterSecret, so keep tightening it if a user or
     // editor created it with looser permissions.
     try {
-      await fsp.chmod(absolutePath, 0o600)
+      await fsp.chmod(absolutePath, 0o600) // NOSONAR: operator-supplied config path
     } catch {
       // Windows and some filesystems do not enforce POSIX modes.
     }
@@ -719,17 +719,17 @@ async function saveConfig(configPath, config) {
   const normalized = normalizeConfig(config)
   const dir = path.dirname(absolutePath)
 
-  await fsp.mkdir(dir, { recursive: true, mode: 0o700 })
+  await fsp.mkdir(dir, { recursive: true, mode: 0o700 }) // NOSONAR: operator-supplied config path
   try {
-    await fsp.chmod(dir, 0o700)
+    await fsp.chmod(dir, 0o700) // NOSONAR: operator-supplied config path
   } catch {
     // Windows and some filesystems do not enforce POSIX modes.
   }
 
   const payload = `${JSON.stringify(normalized, null, 2)}\n`
-  await fsp.writeFile(absolutePath, payload, { mode: 0o600 })
+  await fsp.writeFile(absolutePath, payload, { mode: 0o600 }) // NOSONAR: operator-supplied config path
   try {
-    await fsp.chmod(absolutePath, 0o600)
+    await fsp.chmod(absolutePath, 0o600) // NOSONAR: operator-supplied config path
   } catch {
     // See above.
   }

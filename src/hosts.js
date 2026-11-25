@@ -76,7 +76,7 @@ async function writeHostsFile(data, filePath = HOSTS_PATH) {
 
 async function listHosts(filePath = HOSTS_PATH) {
   const data = await readHostsFile(filePath)
-  return Object.keys(data.hosts).sort().map((alias) => ({
+  return Object.keys(data.hosts).sort((a, b) => a.localeCompare(b)).map((alias) => ({
     alias,
     ...data.hosts[alias]
   }))

@@ -56,7 +56,7 @@ const ALLOW_MISSING = new Set([
 ])
 
 const cli = read('src/cli.js')
-const flagPattern = /^\s*'?([a-z0-9-]+)'?:\s*\{\s*type:\s*'(boolean|string)'/gm
+const flagPattern = /^[ \t]*'?([a-z0-9-]+)'?:[ \t]*\{[ \t]*type:[ \t]*'(boolean|string)'/gm
 const readme = read('README.md') + read('README.th.md')
 const flags = new Set()
 let match

@@ -25,7 +25,7 @@ async function main () {
   const useMux = process.env.MUX !== '0'
   if (!file || !secret || !password) throw new Error('usage: file count label + MASTER_SECRET + PASSWORD')
 
-  const buf = fs.readFileSync(file)
+  const buf = fs.readFileSync(file) // NOSONAR: dev-only CLI path
 
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'p2p-link-'))
   const clientKeyPath = path.join(dir, 'client-key.json')

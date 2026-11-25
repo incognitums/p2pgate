@@ -18,7 +18,7 @@ SRC_HTTP="$(cd "$(dirname "$0")" && pwd)/target-http.js"
 
 mkdir -p "$D" "$STATE"
 
-if [ ! -f "$D/big.bin" ] || [ "$(wc -c < "$D/big.bin")" -ne $((MB * 1024 * 1024)) ]; then
+if [[ ! -f "$D/big.bin" || "$(wc -c < "$D/big.bin")" -ne $((MB * 1024 * 1024)) ]]; then
   echo "creating $MB MiB test file..."
   head -c $((MB * 1024 * 1024)) /dev/urandom > "$D/big.bin"
 fi
@@ -35,7 +35,7 @@ fi
 TARGET_PID="$(pgrep -f "target-http.js $D/big.bin" | head -n 1)"
 
 # --- server config -------------------------------------------------------
-if [ -n "$CLIENT_KEY" ]; then
+if [[ -n "$CLIENT_KEY" ]]; then
   SECRET="$(node -e "console.log(require('crypto').randomBytes(32).toString('hex'))")"
   cat > "$D/server.json" <<JSON
 {
@@ -70,13 +70,13 @@ if ! pgrep -f "$D/server.json" > /dev/null 2>&1; then
 fi
 SERVER_PID="$(pgrep -f "$D/server.json" | head -n 1)"
 
-if [ -z "${SERVER_PID:-}" ]; then
+if [[ -z "${SERVER_PID:-}" ]]; then
   echo "ERROR: p2pgate server did not start; see $D/server.log"
   exit 1
 fi
 
 # --- credentials ---------------------------------------------------------
-if [ "$MODE" = "password" ]; then
+if [[ "$MODE" = "password" ]]; then
   SECRET="$(grep -m1 '^masterSecret:' "$STATE/.p2pgate/quickstart.txt" | awk '{print $2}')"
   PASSWORD="$(grep -m1 '^password:' "$STATE/.p2pgate/quickstart.txt" | awk '{print $2}')"
 else
@@ -100,7 +100,7 @@ if ! pgrep -f "soak-rss $D" > /dev/null 2>&1; then
     D="$1"
     while true; do
       pid="$(pgrep -f "$D/server.json" | head -n 1)"
-      if [ -n "$pid" ] && [ -r "/proc/$pid/status" ]; then
+      if [[ -n "$pid" && -r "/proc/$pid/status" ]]; then
         rss="$(awk "/VmRSS/{print \$2}" "/proc/$pid/status")"
         echo "$(date -u +%Y-%m-%dT%H:%M:%SZ),$pid,${rss:-0}" >> "$D/server-rss.csv"
       else
@@ -117,7 +117,7 @@ echo "dir:      $D"
 echo "server:   pid $SERVER_PID (log $D/server.log)"
 echo "target:   pid ${TARGET_PID:-?} on 127.0.0.1:$TARGET_PORT"
 echo "file:     $MB MiB, sha256 $SHA"
-if [ "$MODE" = "trusted" ]; then
+if [[ "$MODE" = "trusted" ]]; then
   echo "auth:     registry + key-only (fast path)"
 else
   echo "auth:     password (challenged)"

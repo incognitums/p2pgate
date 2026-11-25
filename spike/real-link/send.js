@@ -25,7 +25,7 @@ async function main () {
   const useCompress = process.env.COMPRESS === '1'
   if (!file || !secret || !password) throw new Error('usage: file + MASTER_SECRET + PASSWORD')
 
-  const buf = fs.readFileSync(file)
+  const buf = fs.readFileSync(file) // NOSONAR: dev-only CLI path
   const sha256 = crypto.createHash('sha256').update(buf).digest('hex')
 
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'p2p-link-'))
