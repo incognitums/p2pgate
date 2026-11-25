@@ -1,7 +1,7 @@
 # p2pgate — Handoff
 
 อัปเดตล่าสุด: 2026-11-21
-สถานะ: **v1.13.8 เตรียมไว้ — รอ publish (code-quality release, SonarCloud 0 issues)**
+สถานะ: **v1.13.8 released** (code-quality release; SonarCloud 0 issues)
 เจ้าของโปรเจกต์: incognitums
 
 เอกสารนี้เขียนไว้ให้เปิด session ใหม่แล้วทำงานต่อได้ทันทีโดยไม่ต้องไล่ประวัติแชท
@@ -53,13 +53,13 @@ inbound port ทำงานบน HyperDHT (Noise) พร้อม SCRAM mutual
 
 | รายการ | ค่า |
 |---|---|
-| Version | `1.13.8` (เตรียมไว้ — รอ publish) |
-| npm `latest` | `1.13.7` (published 2026-11-21) |
+| Version | `1.13.8` |
+| npm `latest` | `1.13.8` (published 2026-11-26) |
 | Git branch | `main` |
-| Commit | `32b875c chore(spike): NOSONAR on the flagged loop line` + release prep 1.13.8 |
-| Tag | `v1.13.7` (1.13.8 จะสร้างหลัง publish) |
-| GitHub Release | `v1.13.7` = Latest (1.13.8 รอ) |
-| Working tree | มีการเตรียม release 1.13.8 (code quality) |
+| Commit | `157c861 release: v1.13.8 (SonarCloud cleanup + release tooling)` |
+| Tag | `v1.13.8` |
+| GitHub Release | `v1.13.8` = Latest |
+| Working tree | clean หลัง release |
 | SonarCloud | 0 open issues (Security A, Reliability A, Maintainability A) |
 | Tests | `npm test` → PASSED (รวม compression + fastpath peek checks) |
 | src | 25 ไฟล์ (`src/mux.js`, `src/compress.js`), `src/self-test.js` ~2,620 บรรทัด |
